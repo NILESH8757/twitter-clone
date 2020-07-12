@@ -10,11 +10,11 @@ const validateLoginInput = require('../validation/login');
 
 router.route('/register')
 	.post((req, res) => {
-		const { isValid, errors } = validateRegisterInput(req.body);
+		// const { isValid, errors } = validateRegisterInput(req.body);
 
-		if (!isValid) {
-			return res.status(404).json(errors);
-		}
+		// if (!isValid) {
+		// 	return res.status(404).json(errors);
+		// }
 
 		User.findOne({ email: req.body.email })
 			.then(user => {
@@ -41,11 +41,11 @@ router.route('/register')
 
 router.route('/login')
 	.post((req, res) => {
-		const { errors, isValid } = validateLoginInput(req.body);
+		// const { errors, isValid } = validateLoginInput(req.body);
 
-		if (!isValid) {
-			return res.status(404).json(errors);
-		}
+		// if (!isValid) {
+		// 	return res.status(404).json(errors);
+		// }
 
 		User.findOne({ email: req.body.email })
 			.then(user => {
